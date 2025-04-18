@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Supervisor Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #3498db;
+            --light-bg: #f4f6f7;
+            --text-color: #2c3e50;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            padding-left: 40px;
+        }
+
+        .login-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+
+        .login-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .login-btn i {
+            margin-right: 8px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .feature {
+            text-align: center;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            width: calc(33.333% - 20px);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature i {
+            color: var(--primary-color);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--white);
+            margin-top: 50px;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero, .features {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar-title {
+                padding-left: 20px;
+            }
+
+            .login-btn {
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="container navbar">
+        <div class="navbar-title">Smart Parkinng System</div>
+        <a href="login.php" class="login-btn">
+            <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Parking Operations Dashboard</h1>
+                <p>Real-time monitoring and management of parking facilities. Ensure smooth operations, track occupancy, and maintain parking quality.</p>
+                <a href="login.php" class="cta-btn">Access Supervisor Dashboard</a>
+            </div>
+            <div class="hero-image">
+                <!-- Option 1: Placeholder image
+                <img src="/api/placeholder/600/400" alt="Parking Supervision Illustration"> -->
+                
+                <!-- Option 2: External image URL (replace with your actual image URL)  -->
+               <img src="parking.jpg" alt="Parking Supervision Illustration">
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Real-time Monitoring</h3>
+                <p>Track parking slot availability, vehicle entry/exit, and occupancy in real-time.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security Management</h3>
+                <p>Monitor and manage security protocols, identify potential issues, and ensure safety.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Operational Reporting</h3>
+                <p>Generate shift reports, track incidents, and maintain comprehensive operational logs.</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Optimize Parking Operations</h2>
+            <p>Empower your parking supervision with advanced management tools and real-time insights.</p>
+            <a href="login.php" class="cta-btn">Start Monitoring</a>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const actionButtons = document.querySelectorAll('.cta-btn, .login-btn');
+            
+            actionButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Simple animation before redirect
+                    button.style.transform = 'scale(0.95)';
+                    button.style.transition = 'transform 0.1s ease';
+                    
+                    setTimeout(() => {
+                        button.style.transform = 'scale(1)';
+                        window.location.href = button.getAttribute('href');
+                    }, 100);
+                });
+            });
+
+            // Subtle hover effect on features
+            const features = document.querySelectorAll('.feature');
+            features.forEach(feature => {
+                feature.addEventListener('mouseenter', () => {
+                    feature.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                });
+                feature.addEventListener('mouseleave', () => {
+                    feature.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

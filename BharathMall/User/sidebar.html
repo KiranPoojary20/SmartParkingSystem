@@ -1,0 +1,195 @@
+<?php
+// Ensure session is started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Navigation Styles */
+        .navbar-container {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Horizontal Navigation Styles */
+        .horizontal-nav {
+            background-color: #bfbfbf;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .horizontal-nav-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .horizontal-nav-item {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #000000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .horizontal-nav-item:hover {
+            background-color: #f1f3f4;
+            color: #3498DB;
+        }
+
+        .horizontal-nav-item.active {
+            color: #3498DB;
+            border-bottom-color: #3498DB;
+            font-weight: bold;
+        }
+
+        .horizontal-nav-item i {
+            margin-right: 8px;
+        }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .mobile-nav-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #666;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-item.active {
+            color: #3498DB;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .horizontal-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <!-- Horizontal Navigation for Desktop -->
+        <nav class="horizontal-nav">
+            <div class="horizontal-nav-container">
+                <a href="userhome.php" class="horizontal-nav-item" data-page="home">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="userbookslot.php" class="horizontal-nav-item" data-page="book">
+                    <i class="fas fa-parking"></i>
+                    Book a Slot
+                </a>
+                <a href="usermybookings.php" class="horizontal-nav-item" data-page="bookings">
+                    <i class="fas fa-calendar-alt"></i>
+                    My Bookings
+                </a>
+                <a href="userpayments.php" class="horizontal-nav-item" data-page="payments">
+                    <i class="fas fa-credit-card"></i>
+                    Payments
+                </a>
+                <a href="usersupport.html" class="horizontal-nav-item" data-page="support">
+                    <i class="fas fa-question-circle"></i>
+                    Support
+                </a>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <div class="mobile-nav-container">
+                <a href="userhome.php" class="mobile-nav-item" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="userbookslot.php" class="mobile-nav-item" data-page="book">
+                    <i class="fas fa-parking"></i>
+                    <span>Book</span>
+                </a>
+                <a href="usermybookings.php" class="mobile-nav-item" data-page="bookings">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="userpayments.php" class="mobile-nav-item" data-page="payments">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+                <a href="usersupport.html" class="mobile-nav-item" data-page="support">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Support</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the current page from the URL
+            const currentPath = window.location.pathname;
+            
+            // Function to set active state
+            function setActiveNavigation() {
+                // Desktop Navigation
+                const desktopNavItems = document.querySelectorAll('.horizontal-nav-item');
+                desktopNavItems.forEach(item => {
+                    if (item.getAttribute('href') === currentPath) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // Mobile Navigation
+                const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+                mobileNavItems.forEach(item => {
+                    if (item.getAttribute('href') === currentPath) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+
+            // Call the function to set initial active state
+            setActiveNavigation();
+        });
+    </script>
+</body>
+</html>

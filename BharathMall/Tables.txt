@@ -1,0 +1,40 @@
+CREATE TABLE admin (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(50)
+);
+
+-- Create Floors Table
+CREATE TABLE floors (
+    floor_id INT PRIMARY KEY AUTO_INCREMENT,
+    floor_name VARCHAR(50) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create Slots Table
+CREATE TABLE slots (
+    slot_id INT PRIMARY KEY AUTO_INCREMENT,
+    floor_id INT NOT NULL,
+    slot_number VARCHAR(20) NOT NULL,
+    status ENUM('available', 'occupied', 'disabled') DEFAULT 'available',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    slot_price DECIMAL(10,2) DEFAULT 30.0,
+    gps_location VARCHAR(100), NULL,
+    FOREIGN KEY (floor_id) REFERENCES floors(floor_id),
+    UNIQUE KEY unique_slot_per_floor (floor_id, slot_number)
+);
+
+CREATE TABLE parking_supervisors (
+    parking_supervisor_id INT AUTO_INCREMENT PRIMARY KEY,
+    supervisor_id VARCHAR(50) UNIQUE NOT NULL,
+    supervisor_name VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    shift_from TIME NOT NULL,
+    shift_to TIME NOT NULL,
+    floor_id INT NOT NULL,
+    aadhaar_card VARCHAR NOT NULL,
+    FOREIGN KEY (floor_id) REFERENCES floors(floor_id) ON DELETE RESTRICT
+);
+
